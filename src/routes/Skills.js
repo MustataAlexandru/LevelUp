@@ -3,7 +3,7 @@ import styles from './Navbar.module.css'
 const Skills = () => {
     return (
 
-            <h1>Skills</h1>
+        <h1>Skills</h1>
 
     )
 }

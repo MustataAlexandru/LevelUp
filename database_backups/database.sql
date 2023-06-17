@@ -69,10 +69,7 @@ ALTER TABLE ONLY public.t_user ALTER COLUMN id SET DEFAULT nextval('public.t_use
 --
 
 COPY public.t_user (id, fullname, email, password, date) FROM stdin;
-1	Robert	trasca.robert2003@gmail.com	$2a$10$7aR0T/9EEswa0uSv1SlLyOb1uqQ/1w2dseP1bCrJH7ZtXi7iWC5iK	2023-06-17 13:51:37.745895+03
-2	Robert Trasca	r_trasca2003@yahoo.com	$2a$10$ehtNWuYUeMGOedOkqrmEw.lgr2q/dQMuF4izeIvSGB3EP/uGQoXpq	2023-06-17 13:53:53.729333+03
-3	Popescu Alexandru	popescu@yahoo.com	$2a$10$GSXxbo7yqsl42RNR8I8RC.d2vhfEVdmwKla5HZAyksVk1g/OrA6pW	2023-06-17 15:11:31.866392+03
-4	Bobert	bobert@yahoo.com	$2a$10$MlI.C3KNj.RXjUpPVRzB0ehzAlWSm2p4s33GXwKLAGm4norvKvt.W	2023-06-17 15:17:53.121791+03
+9	Trasca Robert-Valentin	trasca.robert2003@gmail.com	$2a$10$OX6OAxDdncIojGiuZtRWM.KR0CBaXJDmmn/XQAVar6pk0GMQEIT82	2023-06-17 20:48:11.120887+03
 \.
 
 
@@ -80,7 +77,7 @@ COPY public.t_user (id, fullname, email, password, date) FROM stdin;
 -- Name: t_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.t_user_id_seq', 4, true);
+SELECT pg_catalog.setval('public.t_user_id_seq', 9, true);
 
 
 --

@@ -1,40 +1,44 @@
-import React , { useState } from "react";
+import React, { useState } from "react";
 import styles from './Register.module.css';
+import axios from 'axios';
+
+const config = {
+    'Content-Type': 'application/json',
+};
+
 export const Register = (props) => {
     const [email, setEmail] = useState('');
-    const [pass , setPass] = useState('');
-    const [name , setName] = useState('');
+    const [pass, setPass] = useState('');
+    const [fullname, setFullName] = useState('');
+    const [rpass, setRPass] = useState('');
 
-    const passChangeHandler = (e) => {
-        setPass(e.target.value);
-    }
-    const emailChangeHandler = (e) => {
-        setEmail(e.target.value);
-    }
-    const nameChangeHandler = (e) => {
-        setName(e.target.value);
-    }
-
-
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(email , pass , name);
+        try {
+            await axios.post('/register', { fullname, pass, rpass, email }, config);
+            alert('Very well !');
+            props.toggleForm('login');
+        } catch (error) {
+            alert('Invalid credentials !')
+        }
     }
 
     return (
         <div className={styles.form_container}>
 
-        <form className={styles.register_form} onSubmit ={handleSubmit}>
-            <h1>Register</h1>
-            <label htmlFor='name'>Full name</label>
-            <input value={name} name='name' id='name' onChange={nameChangeHandler} placeholder='Full name'></input>
-            <label htmlFor='email'>Email</label>
-            <input value={email} name='email' id='email' onChange={emailChangeHandler} placeholder='youremail@example.com'></input>
-            <label htmlFor='password'>Password</label>
-            <input value={pass} name='password' id='password' onChange={passChangeHandler} placeholder='********'></input>
-            <button type='submit'>Register</button>
-            <button className={styles.link_btn} onClick={() => {props.onFormSwitch('login')}}>Already have an account?Login here.</button>
-        </form>
+            <form className={styles.register_form} onSubmit={handleSubmit}>
+                <h1>Register</h1>
+                <label htmlFor='name'>Full name</label>
+                <input value={fullname} name='name' id='name' onChange={(e) => setFullName(e.target.value)} placeholder='Full name'></input>
+                <label htmlFor='email'>Email</label>
+                <input value={email} name='email' id='email' onChange={(e) => setEmail(e.target.value)} placeholder='youremail@example.com'></input>
+                <label htmlFor='password'>Password</label>
+                <input value={pass} type="password" name='password' id='password' onChange={(e) => setPass(e.target.value)} placeholder='password'></input>
+                <label htmlFor='password'>Re-enter password</label>
+                <input value={rpass} type="password" name='rpassword' id='rpassword' onChange={(e) => setRPass(e.target.value)} placeholder='re-enter password'></input>
+                <button type='submit'>Register</button>
+                <button className={styles.link_btn} onClick={() => { props.toggleForm('login') }}>Already have an account?Login here.</button>
+            </form>
 
         </div>
     )
