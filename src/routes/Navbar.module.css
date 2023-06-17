@@ -1,0 +1,23 @@
+
+.navbar {
+    display: flex;
+    width: 100%;
+    background-color: black;
+}
+
+.logo {
+    color: white;
+    margin-left: 2rem;
+}
+
+.navbar ul li{
+    color: white;
+    text-decoration: none;
+
+}
+
+.nav_links {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
