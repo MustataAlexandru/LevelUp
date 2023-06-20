@@ -133,13 +133,13 @@ const Tutorials = () => {
     };
 
     return (
-        <div className="container" style={{ padding: '5rem' , margin: 'auto', width: '100%' }}>
+        <div className="container" style={{ padding: '2rem 14rem ' , margin: 'auto', width: '100%', borderBottom: '1px solid #888888'}}>
    <h2 style={{marginBottom: '2rem', textAlign: 'center'}}>Start learning with us today.</h2>
             <div className="row">
                 {courses.map((course, index) => (
                     <div key={index} className="col-xs-12 col-sm-6 col-md-4 col-lg-3" style={{ marginBottom: '20px' }}>
                         <Card style={{ width: '18rem' }} className={styles.hover}>
-                            <Card.Img variant="top" src={courses.image} />
+
                             <Card.Body className="text-center">
                                 <Card.Title>
                                     <strong>{truncateTitle(course.title)}</strong>
@@ -158,17 +158,11 @@ const Tutorials = () => {
                                     <span className="mr-2">{course.rating} stars &nbsp;</span>
                                     <span>{course.price}</span>
 
-                                <Button
+                                <Button className={styles.btn}
                                     variant="primary"
                                     style={{
                                         backgroundColor: '#909090',
-                                        border: '1px solid white',
-                                        '&:hover': {
-                                            color: 'white',
-                                            outline: 'none',
-                                            boxShadow: '0 0 0 2px #909090',
-                                        },
-                                    }}
+                                        border: '1px solid white',}}
                                 >Enroll Now</Button>
                             </Card.Body>
                         </Card>

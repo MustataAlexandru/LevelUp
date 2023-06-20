@@ -4,3 +4,7 @@
     z-index: 2;
 
 }
+
+.hover {
+    transition: all 0.3s;
+}
