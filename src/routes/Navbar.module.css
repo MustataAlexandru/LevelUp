@@ -2,8 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgb(116,57,219);
-    background: linear-gradient(180deg, rgba(116,57,219,1) 0%, rgba(198,111,188,1) 0%, rgba(247,148,77,1) 100%);
+    background-color: #f2f2f2;
 
     padding: 10px;
     -webkit-box-shadow: -1px 1px 9px -2px #000000;
@@ -82,4 +81,8 @@
 
 .user_details .dropdown .dropdown_item:hover {
     background-color: #f2f2f2;
+}
+
+.dropdown_menu li {
+    list-style: none;
 }

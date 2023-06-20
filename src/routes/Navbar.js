@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {FiUserCheck} from "react-icons/fi";
 
 const Navbar = () => {
 
@@ -37,24 +38,24 @@ const Navbar = () => {
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                     >
-                        User Name
+                        <FiUserCheck />
                     </Link>
                     <ul className={styles.dropdown_menu} aria-labelledby="userDropdown">
                         <li>
                             <Link className={styles.dropdown_item}>
-                                username:
+                                Name: {}
                             </Link>
                         </li>
                         <li>
                             <Link className={styles.dropdown_item}>
-                                email:
+                                Email: {}
                             </Link>
                         </li>
                         <li>
-                            <hr  />
+                            <hr />
                         </li>
                         <li>
-                            <Link to="/"  className={styles.dropdown_item}>
+                            <Link to="/" onClick={logoutHandler} className={styles.dropdown_item}>
                                 Logout
                             </Link>
                         </li>

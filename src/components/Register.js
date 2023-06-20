@@ -36,7 +36,7 @@ export const Register = (props) => {
                 <input value={pass} type="password" name='password' id='password' onChange={(e) => setPass(e.target.value)} placeholder='password'></input>
                 <label htmlFor='password'>Re-enter password</label>
                 <input value={rpass} type="password" name='rpassword' id='rpassword' onChange={(e) => setRPass(e.target.value)} placeholder='re-enter password'></input>
-                <button type='submit'>Register</button>
+                <button type='submit' className={styles.btnSubmit}>Register</button>
                 <button className={styles.link_btn} onClick={() => { props.toggleForm('login') }}>Already have an account?Login here.</button>
             </form>
 

@@ -30,7 +30,7 @@ export const Login = (props) => {
                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@example.com" id="email" name="email"></input>
                 <label htmlFor="password">password</label>
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="password" id="password" name="password"></input>
-                <button type="submit">
+                <button type="submit" className={styles.btnSubmit}>
                     Log In
                 </button>
                 <button className={styles.link_btn} onClick={() => { props.toggleForm('register') }}>Don't have an account? Register here.</button>

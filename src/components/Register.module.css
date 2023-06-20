@@ -43,3 +43,9 @@ button {
     text-decoration: underline;
     cursor: pointer;
 }
+
+.btnSubmit {
+    border-radius: 20px;
+    margin-top: 2rem;
+    width: 74%;
+}
