@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import styles from './Tutorials.module.css';
 const Tutorials = () => {
     const courses = [
         {
@@ -138,7 +138,7 @@ const Tutorials = () => {
             <div className="row">
                 {courses.map((course, index) => (
                     <div key={index} className="col-xs-12 col-sm-6 col-md-4 col-lg-3" style={{ marginBottom: '20px' }}>
-                        <Card style={{ width: '18rem' }}>
+                        <Card style={{ width: '18rem' }} className={styles.hover}>
                             <Card.Img variant="top" src={courses.image} />
                             <Card.Body className="text-center">
                                 <Card.Title>
