@@ -9,7 +9,7 @@ import Skills from "./routes/Skills";
 import Tutorials from "./routes/Tutorials";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import setAuthToken from './server/utils/setAuthToken';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   setAuthToken(localStorage.token);
   const [currentForm, setCurrentForm] = useState('login');

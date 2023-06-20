@@ -1,30 +1,68 @@
-import React from "react";
-import styles from './Navbar.module.css'
-import { Link, Router } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './Navbar.module.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navbar = () => {
-    return (
 
+    const logoutHandler = () => {
+        localStorage.clear();
+        window.location.reload();
+    }
+
+    return (
         <nav className={styles.navbar}>
             <h3 className={styles.logo}>Logo</h3>
             <ul className={styles.nav_links}>
-
                 <li>
-                    <Link to='/'><li>Home</li></Link>
+                    <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to='/about'><li>About</li></Link>
+                    <Link to="/about">About</Link>
                 </li>
                 <li>
-                    <Link to='/skills'><li>Skills</li></Link>
+                    <Link to="/skills">Skills</Link>
                 </li>
                 <li>
-                    <Link to='/tutorials'><li>Tutorials</li></Link>
+                    <Link to="/tutorials">Tutorials</Link>
                 </li>
             </ul>
+            <div className={styles.user_details}>
+                <div className={styles.dropdown}>
+                    <Link
+                        to="#"
+                        className={styles.dropdown_toggle}
+                        role="button"
+                        id="userDropdown"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                        User Name
+                    </Link>
+                    <ul className={styles.dropdown_menu} aria-labelledby="userDropdown">
+                        <li>
+                            <Link className={styles.dropdown_item}>
+                                username:
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className={styles.dropdown_item}>
+                                email:
+                            </Link>
+                        </li>
+                        <li>
+                            <hr className={styles.dropdown_divider} />
+                        </li>
+                        <li>
+                            <Link to="/"  className={styles.dropdown_item}>
+                                Logout
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
-
-    )
-}
+    );
+};
 
 export default Navbar;
