@@ -51,7 +51,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li>
-                            <hr className={styles.dropdown_divider} />
+                            <hr  />
                         </li>
                         <li>
                             <Link to="/"  className={styles.dropdown_item}>
