@@ -1,9 +1,9 @@
 import React from "react";
-import styles from './Navbar.module.css'
+import styles from './Skills.module.css'
 const Skills = () => {
     return (
 
-        <h1>Skills</h1>
+        <h1 className={styles.textCenter}>Skills page!</h1>
 
     )
 }

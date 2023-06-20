@@ -16,7 +16,7 @@ const Tutorials = () => {
             author: 'Jane Smith',
             rating: 4.2,
             price: '$59.99',
-            image: 'https://example.com/course2.jpg',
+            image: 'https://example.com/course1.jpg',
         },
         {
             title: 'Python for Data Science',
@@ -46,6 +46,83 @@ const Tutorials = () => {
             price: '$69.99',
             image: 'https://example.com/course3.jpg',
         },
+        {
+            title: 'JavaScript Advanced Techniques',
+            author: 'Jane Smith',
+            rating: 4.2,
+            price: '$59.99',
+            image: 'https://example.com/course1.jpg',
+        },
+        {
+            title: 'JavaScript Advanced Techniques',
+            author: 'Jane Smith',
+            rating: 4.2,
+            price: '$59.99',
+            image: 'https://example.com/course1.jpg',
+        },
+        {
+            title: 'JavaScript Advanced Techniques',
+            author: 'Jane Smith',
+            rating: 4.2,
+            price: '$59.99',
+            image: 'https://example.com/course1.jpg',
+        },
+        {
+            title: 'JavaScript Advanced Techniques',
+            author: 'Jane Smith',
+            rating: 4.2,
+            price: '$59.99',
+            image: 'https://example.com/course1.jpg',
+        },
+        {
+            title: 'JavaScript Advanced Techniques',
+            author: 'Jane Smith',
+            rating: 4.2,
+            price: '$59.99',
+            image: 'https://example.com/course1.jpg',
+        },
+        {
+            title: 'JavaScript Advanced Techniques',
+            author: 'Jane Smith',
+            rating: 4.2,
+            price: '$59.99',
+            image: 'https://example.com/course1.jpg',
+        },
+        {
+            title: 'JavaScript Advanced Techniques',
+            author: 'Jane Smith',
+            rating: 4.2,
+            price: '$59.99',
+            image: 'https://example.com/course1.jpg',
+        },
+        {
+            title: 'JavaScript Advanced Techniques',
+            author: 'Jane Smith',
+            rating: 4.2,
+            price: '$59.99',
+            image: 'https://example.com/course1.jpg',
+        },
+        {
+            title: 'JavaScript Advanced Techniques',
+            author: 'Jane Smith',
+            rating: 4.2,
+            price: '$59.99',
+            image: 'https://example.com/course1.jpg',
+        },
+        {
+            title: 'JavaScript Advanced Techniques',
+            author: 'Jane Smith',
+            rating: 4.2,
+            price: '$59.99',
+            image: 'https://example.com/course1.jpg',
+        },
+        {
+            title: 'JavaScript Advanced Techniques',
+            author: 'Jane Smith',
+            rating: 4.2,
+            price: '$59.99',
+            image: 'https://example.com/course1.jpg',
+        }
     ];
 
     const truncateTitle = (title) => {
@@ -56,18 +133,18 @@ const Tutorials = () => {
     };
 
     return (
-        <div className="container" style={{ padding: '5rem' , margin: 'auto' }}>
-
+        <div className="container" style={{ padding: '5rem' , margin: 'auto', width: '100%' }}>
+   <h2 style={{marginBottom: '2rem', textAlign: 'center'}}>Start learning with us today.</h2>
             <div className="row">
                 {courses.map((course, index) => (
                     <div key={index} className="col-xs-12 col-sm-6 col-md-4 col-lg-3" style={{ marginBottom: '20px' }}>
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={course.image} />
-                            <Card.Body>
+                            <Card.Img variant="top" src={courses.image} />
+                            <Card.Body className="text-center">
                                 <Card.Title>
                                     <strong>{truncateTitle(course.title)}</strong>
                                 </Card.Title>
-                                <Card.Text>{course.author}</Card.Text>
+                                <Card.Text style={{textAlign: 'center'}}>{course.author}</Card.Text>
                                 <div className="d-flex align-items-center">
                                     <div className="d-flex align-items-center mr-2">
                                         {Array.from({ length: 5 }).map((_, index) => (
@@ -77,10 +154,22 @@ const Tutorials = () => {
                                             ></i>
                                         ))}
                                     </div>
-                                    <span className="mr-2">{course.rating} stars</span>
-                                    <span>{course.price}</span>
                                 </div>
-                                <Button variant="primary">Enroll Now</Button>
+                                    <span className="mr-2">{course.rating} stars &nbsp;</span>
+                                    <span>{course.price}</span>
+
+                                <Button
+                                    variant="primary"
+                                    style={{
+                                        backgroundColor: '#909090',
+                                        border: '1px solid white',
+                                        '&:hover': {
+                                            color: 'white',
+                                            outline: 'none',
+                                            boxShadow: '0 0 0 2px #909090',
+                                        },
+                                    }}
+                                >Enroll Now</Button>
                             </Card.Body>
                         </Card>
                     </div>

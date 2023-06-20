@@ -15,7 +15,7 @@ export const Login = (props) => {
             let token = (await axios.post(`/login`, { email, pass }, { 'Content-Type': 'application/json' }));
             localStorage.setItem('token', token);
             window.location.reload();
-            alert('good')
+
         } catch (error) {
             alert('Invalid credentials !');
         }

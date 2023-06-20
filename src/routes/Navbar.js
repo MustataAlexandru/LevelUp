@@ -4,6 +4,7 @@ import styles from './Navbar.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {FiUserCheck} from "react-icons/fi";
 
+
 const Navbar = () => {
 
     const logoutHandler = () => {
