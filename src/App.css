@@ -5,11 +5,15 @@
     scroll-behavior: smooth;
 }
 
+
+
 html {
     font-size: 80%;
+    overflow-x:hidden;
 }
+
 @media (max-width: 1252px) {
-html {
-    font-size: 70%;
-}
+    html {
+        font-size: 70%;
+    }
 }

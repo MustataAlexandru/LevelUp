@@ -16,7 +16,7 @@ const App = () => {
   const toggleForm = (formName) => setCurrentForm(formName);
 
   return (
-    <Router>
+    <Router className='big-container'>
       {localStorage.getItem('token') === null ? (
         <Routes>
           <Route
