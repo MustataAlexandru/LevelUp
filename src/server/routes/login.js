@@ -11,10 +11,9 @@ const config = require('../config/default.json');
 // @access => Private
 router.get('/', auth, async (req, res) => {
     try {
-        const { email } = req.user;
         const result = await db.query(
             `select id,fullname,email,date from t_user where email=$1`,
-            [email]
+            [req.email]
         );
         res.json(result.rows[0]);
     } catch (err) {

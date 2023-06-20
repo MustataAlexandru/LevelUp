@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import styles from './Login.module.css';
 import axios from 'axios';
-const config = {
-    'Content-Type': 'application/json',
-};
 
 export const Login = (props) => {
     const [email, setEmail] = useState('');
@@ -12,7 +9,7 @@ export const Login = (props) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            let token = (await axios.post(`/login`, { email, pass }, { 'Content-Type': 'application/json' }));
+            let token = (await axios.post(`/login`, { email, pass }, { 'Content-Type': 'application/json' })).data.token;
             localStorage.setItem('token', token);
             window.location.reload();
 
