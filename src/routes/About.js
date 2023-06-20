@@ -19,7 +19,7 @@ const members = [
 
 const About = () => {
     return (
-        <div>
+        <div className={styles.container}>
             <h2 className={styles.textCenter}>Who are we?</h2>
             {members.map((member, i) => (
                 <div key={i} className ={styles.Card}>
