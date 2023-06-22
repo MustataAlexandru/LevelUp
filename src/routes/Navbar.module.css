@@ -1,6 +1,8 @@
 .navbar {
-    width: 90vw;
+    width: 100vw;
     display: flex;
+    position: fixed;
+    z-index: 3;
     justify-content: space-between;
     align-items: center;
     background-color: #f2f2f2;
