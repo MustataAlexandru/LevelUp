@@ -12,10 +12,15 @@ const config = require('../config/default.json');
 router.get('/', auth, async (req, res) => {
     try {
         const result = await db.query(
-            `select id,fullname,email,date from t_user where email=$1`,
+            `select id,fullname,email from t_user where email=$1`,
             [req.email]
         );
-        res.json(result.rows[0]);
+        const result2 = await db.query(`select * from t_teacher where id_user = $1`, [result.rows[0].id]);
+        const data = {
+            user: result.rows[0],
+            admin: result2.rows[0] != null ? true : false
+        }
+        res.json(data);
     } catch (err) {
         res.status(401).send({ msg: 'Permission denied !' });
     }

@@ -1,136 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import styles from './Tutorials.module.css';
 const Tutorials = () => {
-    const courses = [
-        {
-            title: 'React Fundamentals',
-            author: 'John Doe',
-            rating: 4.5,
-            price: '$49.99',
-            image: 'https://example.com/course1.jpg',
-        },
-        {
-            title: 'JavaScript Advanced Techniques',
-            author: 'Jane Smith',
-            rating: 4.2,
-            price: '$59.99',
-            image: 'https://example.com/course1.jpg',
-        },
-        {
-            title: 'Python for Data Science',
-            author: 'Michael Johnson',
-            rating: 4.8,
-            price: '$69.99',
-            image: 'https://example.com/course3.jpg',
-        },
-        {
-            title: 'React Fundamentals',
-            author: 'John Doe',
-            rating: 4.5,
-            price: '$49.99',
-            image: 'https://example.com/course1.jpg',
-        },
-        {
-            title: 'JavaScript Advanced Techniques',
-            author: 'Jane Smith',
-            rating: 4.2,
-            price: '$59.99',
-            image: 'https://example.com/course2.jpg',
-        },
-        {
-            title: 'Python for Data Science',
-            author: 'Michael Johnson',
-            rating: 4.8,
-            price: '$69.99',
-            image: 'https://example.com/course3.jpg',
-        },
-        {
-            title: 'JavaScript Advanced Techniques',
-            author: 'Jane Smith',
-            rating: 4.2,
-            price: '$59.99',
-            image: 'https://example.com/course1.jpg',
-        },
-        {
-            title: 'JavaScript Advanced Techniques',
-            author: 'Jane Smith',
-            rating: 4.2,
-            price: '$59.99',
-            image: 'https://example.com/course1.jpg',
-        },
-        {
-            title: 'JavaScript Advanced Techniques',
-            author: 'Jane Smith',
-            rating: 4.2,
-            price: '$59.99',
-            image: 'https://example.com/course1.jpg',
-        },
-        {
-            title: 'JavaScript Advanced Techniques',
-            author: 'Jane Smith',
-            rating: 4.2,
-            price: '$59.99',
-            image: 'https://example.com/course1.jpg',
-        },
-        {
-            title: 'JavaScript Advanced Techniques',
-            author: 'Jane Smith',
-            rating: 4.2,
-            price: '$59.99',
-            image: 'https://example.com/course1.jpg',
-        },
-        {
-            title: 'JavaScript Advanced Techniques',
-            author: 'Jane Smith',
-            rating: 4.2,
-            price: '$59.99',
-            image: 'https://example.com/course1.jpg',
-        },
-        {
-            title: 'JavaScript Advanced Techniques',
-            author: 'Jane Smith',
-            rating: 4.2,
-            price: '$59.99',
-            image: 'https://example.com/course1.jpg',
-        },
-        {
-            title: 'JavaScript Advanced Techniques',
-            author: 'Jane Smith',
-            rating: 4.2,
-            price: '$59.99',
-            image: 'https://example.com/course1.jpg',
-        },
-        {
-            title: 'JavaScript Advanced Techniques',
-            author: 'Jane Smith',
-            rating: 4.2,
-            price: '$59.99',
-            image: 'https://example.com/course1.jpg',
-        },
-        {
-            title: 'JavaScript Advanced Techniques',
-            author: 'Jane Smith',
-            rating: 4.2,
-            price: '$59.99',
-            image: 'https://example.com/course1.jpg',
-        },
-        {
-            title: 'JavaScript Advanced Techniques',
-            author: 'Jane Smith',
-            rating: 4.2,
-            price: '$59.99',
-            image: 'https://example.com/course1.jpg',
-        }
-    ];
-
+    useEffect(()=>{
+        //extract
+    },[])
+    
+    // Trebuie adaugat on hover full Name
     const truncateTitle = (title) => {
         if (title.length > 20) {
             return title.substring(0, 20) + '...';
         }
         return title;
     };
+    
+    const clickHandler = () => {
+
+    }
 
     return (
         <div className="container" style={{ padding: '2rem 14rem ', margin: 'auto', width: '100%', borderBottom: '1px solid #888888' }}>

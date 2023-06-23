@@ -10,6 +10,7 @@ import Tutorials from "./routes/Tutorials";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import setAuthToken from './server/utils/setAuthToken';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Proffesors from './routes/Proffesors';
 const App = () => {
   setAuthToken(localStorage.token);
   const [currentForm, setCurrentForm] = useState('login');
@@ -38,7 +39,8 @@ const App = () => {
               <Route path='/' element={<Tutorials />} />
               <Route path='/about' element={<About />} />
               <Route path='/skills' element={<Skills />} />
-              <Route path='/tutorials' element={<Tutorials />} />
+              <Route path='/proffesors' element={<Proffesors />} />
+              
             </Routes>
           </div>
         </div>
