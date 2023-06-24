@@ -1,8 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Proffesors.css';
+import './Teachers.css';
 
-function Proffesors() {
+const Teachers = () => {
 
   const teachers = [
     {
@@ -133,7 +133,6 @@ function Proffesors() {
                 </div>
               </div>
             </div>
-
           ))}
         </div>
       </div>
@@ -141,4 +140,4 @@ function Proffesors() {
   );
 }
 
-export default Proffesors;
+export default Teachers;
