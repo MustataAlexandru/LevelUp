@@ -5,8 +5,10 @@ import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { ListGroupItem, ListGroup } from 'react-bootstrap';
 import { Spinner } from 'react-bootstrap';
-
+import axiosInstance from '../../server/utils/axiosInstance';
+import { useNavigate } from 'react-router-dom';
 const Courses = () => {
+    const navigate = useNavigate();
     const [courses, setCourses] = useState(null);
 
     useEffect(() => {
@@ -44,8 +46,8 @@ const Courses = () => {
         return description;
     };
 
-    const onEnrollClick = () => {
-        alert('this is a message !');
+    const onEnrollClick = async (id) => {
+        navigate(`/videos/${id}`);
     };
 
     return (
@@ -77,7 +79,7 @@ const Courses = () => {
                                                             backgroundColor: '#909090',
                                                             border: '1px solid white',
                                                         }}
-                                                        onClick={onEnrollClick}
+                                                        onClick={() => onEnrollClick(course.id)}
                                                     >
                                                         Enroll Now
                                                     </Button>

@@ -36,13 +36,13 @@ router.post(
         check('email')
             .not()
             .isEmpty()
-            .withMessage("Username shouldn't be empty !"),
+            .withMessage("Username shouldn't be empty!"),
         check('pass')
             .isLength({ min: 0, max: 15 })
-            .withMessage('You should add a password between 6 and 15 chars !'),
+            .withMessage('You should add a password between 6 and 15 chars!'),
     ],
     async (req, res) => {
-        console.log(req.body.email,req.body.pass);
+        console.log(req.body.email, req.body.pass);
         const err = validationResult(req);
         if (!err.isEmpty()) return res.status(400).send({ err: err.array() });
         try {
@@ -52,21 +52,23 @@ router.post(
             if (user) {
                 isMatch = await bcrypt.compare(pass, user.password);
                 if (!isMatch)
-                    return res.status(400).send({ err: 'Invalid credentials .' });
-            } else return res.status(400).send({ err: 'Invalid credentials .' });
+                    return res.status(400).send({ err: 'Invalid credentials.' });
+            } else return res.status(400).send({ err: 'Invalid credentials.' });
 
             let payload = {
                 email
             };
             const token = jwt.sign(payload, config.jwtSecret, {
-                expiresIn: '2h',
+                expiresIn: '5h',
             });
+
             return res.json({ token });
         } catch (err) {
-            res.status(500).send({ err: 'Server error !' });
+            res.status(500).send({ err: 'Server error!' });
         }
     }
 );
+
 
 
 module.exports = router;

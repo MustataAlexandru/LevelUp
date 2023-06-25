@@ -8,7 +8,7 @@ const config = require('../config/default.json');
 // @desc => Get the courses
 // @access => Private
 
-router.get('/', auth, async (req, res) => {
+router.get('/', auth, async (_, res) => {
     try {
         const courses = (await db.query(`select * from t_course`)).rows;
         res.json(courses);

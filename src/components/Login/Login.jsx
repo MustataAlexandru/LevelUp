@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from './Login.module.css';
 import axios from 'axios';
 
-export const Login = (props) => {
+const Login = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
 
@@ -36,3 +36,5 @@ export const Login = (props) => {
         </div>
     )
 }
+
+export default Login;

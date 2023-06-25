@@ -3,7 +3,6 @@ import styles from './Navbar.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
 import SmallProfile from '../Profile/SmallProfile'
-import { useEffect } from 'react';
 const Navbar = ({ profileData }) => {
     return (
         <>
