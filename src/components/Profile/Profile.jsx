@@ -2,8 +2,6 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 const Profile = ({ profileData }) => {
-  // Dummy data for testing
-
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className="d-flex flex-column align-items-center">

@@ -1,22 +1,18 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: '/', 
+  baseURL: 'http://localhost:3001/',
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
 axiosInstance.interceptors.response.use(
-  response => {
-    return response;
-  },
+  response => response,
   error => {
-    if (error.response && error.response.status === 402) {
-      console.log('Unauthorized request:', error.response.data);
-      // Clear the token and refresh the current page
+    if (error.response && error.response.status === 401) {
       localStorage.removeItem('token');
-      window.location.reload();
+      window.location.href = '/';
     }
     return Promise.reject(error);
   }

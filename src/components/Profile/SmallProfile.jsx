@@ -1,7 +1,6 @@
 import { FiUserCheck } from "react-icons/fi";
 import { Link } from 'react-router-dom';
 import styles from '../Navbar/Navbar.module.css';
-import { Spinner } from 'react-bootstrap';
 
 const SmallProfile = ({ user, isAdmin }) => {
     const logout = () => {

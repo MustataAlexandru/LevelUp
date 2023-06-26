@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from 'axios';
+import customAxios from './server/utils/customAxios'
 import { Spinner } from 'react-bootstrap';
 import setAuthToken from './server/utils/setAuthToken';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -25,7 +26,8 @@ const App = () => {
     let isMounted = true;
     const fetchData = async () => {
       try {
-        const response = await axios.get('/login', { headers: { 'Content-Type': 'application/json' } });
+        // const response = await axios.get('/login', { headers: { 'Content-Type': 'application/json' } });
+        const response = await customAxios('/login');
         if (isMounted) {
           setUser(response.data.user);
           setIsAdmin(response.data.admin);

@@ -42,7 +42,6 @@ router.post(
             .withMessage('You should add a password between 6 and 15 chars!'),
     ],
     async (req, res) => {
-        console.log(req.body.email, req.body.pass);
         const err = validationResult(req);
         if (!err.isEmpty()) return res.status(400).send({ err: err.array() });
         try {
@@ -59,7 +58,7 @@ router.post(
                 email
             };
             const token = jwt.sign(payload, config.jwtSecret, {
-                expiresIn: '5h',
+                expiresIn: '2h',
             });
 
             return res.json({ token });

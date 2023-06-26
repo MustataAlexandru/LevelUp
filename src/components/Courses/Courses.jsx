@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import styles from './Courses.module.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import axios from 'axios';
 import { ListGroupItem, ListGroup } from 'react-bootstrap';
 import { Spinner } from 'react-bootstrap';
-import axiosInstance from '../../server/utils/axiosInstance';
 import { useNavigate } from 'react-router-dom';
+import customAxios from '../../server/utils/customAxios';
+import axios from 'axios';
 const Courses = () => {
     const navigate = useNavigate();
     const [courses, setCourses] = useState(null);
@@ -16,7 +16,8 @@ const Courses = () => {
 
         const fetchData = async () => {
             try {
-                const response = await axios.get('/courses', { headers: { 'Content-Type': 'application/json' } });
+                const response = await customAxios.get('/courses',window.localStorage);
+
                 if (isMounted) {
                     setCourses(response.data);
                 }

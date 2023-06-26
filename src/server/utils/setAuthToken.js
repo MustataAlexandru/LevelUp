@@ -1,8 +1,7 @@
-import axios from 'axios';
-
+import customAxios from '../utils/customAxios';
 const setAuthToken = (token) => {
-	if (token) axios.defaults.headers.common['x-auth-token'] = token;
-	else delete axios.defaults.headers.common['x-auth-token'];
+	if (token) customAxios.defaults.headers.common['x-auth-token'] = token;
+	else delete customAxios.defaults.headers.common['x-auth-token'];
 };
 
 export default setAuthToken;

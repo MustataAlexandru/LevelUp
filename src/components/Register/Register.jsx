@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import styles from './Register.module.css';
-import axios from 'axios';
-
-const config = {
-    'Content-Type': 'application/json',
-};
+import customAxios from '../../server/utils/customAxios';
 
 const Register = (props) => {
     const [email, setEmail] = useState('');
@@ -15,7 +11,7 @@ const Register = (props) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('/register', { fullname, pass, rpass, email }, config);
+            await customAxios.post('/register', { fullname, pass, rpass, email });
             alert('Very well !');
             props.toggleForm('login');
         } catch (error) {

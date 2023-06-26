@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import customAxios from '../../server/utils/customAxios';
 import { Spinner, Button } from 'react-bootstrap';
 import Alert from 'react-bootstrap/Alert';
 
@@ -17,8 +17,7 @@ const Videos = () => {
 
         const fetchData = async () => {
             try {
-                const response = await axios.get(`/videos/${id}`, { headers: { 'Content-Type': 'application/json' } });
-
+                const response = await customAxios.get(`/videos/${id}`);
                 if (isMounted) {
                     setVideos(response.data.videos);
                     setTeacherInfo(response.data.teacherInfo);
