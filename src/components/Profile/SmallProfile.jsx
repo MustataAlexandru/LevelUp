@@ -50,7 +50,7 @@ const SmallProfile = ({ user, isAdmin }) => {
                                 to="/"
                                 onClick={logout}
                                 className={styles.dropdown_item}
-                                style={{marginBottom: '1rem' , color: 'green'}}
+                                style={{marginBottom: '1rem' , color: 'red'}}
                             >
                                 Logout
                             </Link>

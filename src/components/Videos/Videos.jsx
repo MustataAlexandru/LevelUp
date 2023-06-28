@@ -69,7 +69,7 @@ const Videos = () => {
                         ))}
                     </Col>
                     <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-                        <Button onClick={handleEnrollClick} variant="primary" style={{ width: '15rem',border: '1px solid white' ,backgroundColor: ' #e89664' }}>
+                        <Button onClick={handleEnrollClick} variant="primary" style={{ width: '15rem', border: '1px solid white', backgroundColor: ' #e89664' }}>
                             Confirm Enroll
                         </Button>
                     </div>

@@ -5,7 +5,6 @@ import Form from 'react-bootstrap/Form';
 import SmallProfile from '../Profile/SmallProfile';
 import logo from './logo.jpg'
 
-
 const Navbar = ({ profileData }) => {
     return (
         <>
@@ -37,7 +36,7 @@ const Navbar = ({ profileData }) => {
                           padding: '4px'
                       }}
                       to="/about">
-                    Who we are
+                    Who are we ?
                 </Link>
                 <SmallProfile style={{fontSize: '100px'}} user={profileData.user} isAdmin={profileData.isAdmin} />
             </nav>

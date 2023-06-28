@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import './Slider.css';
@@ -22,7 +22,7 @@ import alex from './img/MustataAlexandru.jpg';
 import robert from './img/TrascaRobert.jpg';
 
 
-const ioanDescription ='Sunt o persoană extrem de pasionată de informatică, programare, utilizarea computerului și siguranța pe internet. Cu o curiozitate firească și o sete de cunoaștere, mă cufund adeseori în lumea tehnologiei, căutând constant să-mi extind înțelegerea și abilitățile.'
+const ioanDescription = 'Sunt o persoană extrem de pasionată de informatică, programare, utilizarea computerului și siguranța pe internet. Cu o curiozitate firească și o sete de cunoaștere, mă cufund adeseori în lumea tehnologiei, căutând constant să-mi extind înțelegerea și abilitățile.'
 const tudorDescrption = 'Sunt un entuziast al tehnologiei, fascinat de tot ceea ce ține de aceasta și IT. Ca elev am fost întotdeauna motivat să înveț despre calculatoare și aplicațiile acestora. Pasiunea mea pentru tehnologie și IT a început în copilărie, când ma jucam mereu cu dispozitivele electronice pentru a descoperi cum funcționează. '
 const alesiaDescription = 'Sunt o adolescentă cu o dorință puternică de a-mi ajuta comunitatea. Am fost întotdeauna un susținător al voluntariatului și am contribuit la inițiative care îi sprijină pe cei mai puțin privilegiați. Cred în puterea colaborării și sunt plină de compasiune pentru cei din jur. Sunt încântată să mă implic și să muncesc din greu pentru a avea un impact pozitiv asupra vieţilor oamenilor.'
 const mustataDescription = 'My name is Alexandru Mustată, and I am a passionate individual with a strong interest in the fields of Artificial Intelligence (AI), Internet of Things (IoT), and computer programming. I am deeply enthusiastic about technology and have a burning desire to explore and understand how these domains can transform the world we live in.'
@@ -48,7 +48,8 @@ const members = [
         description: mustataDescription,
         position: 'Team Member',
     },
-    {   id: 2,
+    {
+        id: 2,
         name: 'Trasca Robert-Valentin',
         age: '20',
         role: 'Web Developer',
@@ -91,7 +92,7 @@ const members = [
         image: andreeaStoian,
         description: andreeaDescription,
         position: 'Team Member'
-    } ,
+    },
     {
         id: 7,
         name: 'Alesia-Gabriela Demetrian',
@@ -121,7 +122,8 @@ const members = [
         position: 'Team Member'
 
     },
-    {id: 10,
+    {
+        id: 10,
         name: 'Ionut Daniel-Dodoc',
         role: '?',
         image: ionut,
@@ -132,12 +134,11 @@ const members = [
     }
 ];
 
-
 const Slider = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedMember, setSelectedMember] = useState(members[0]);
 
-    const openModal= (member) => {
+    const openModal = (member) => {
         setSelectedMember(member);
         setModalOpen(true);
         console.log(selectedMember);
@@ -150,92 +151,81 @@ const Slider = () => {
 
     return (
         <>
-        <div className="container1">
-            <div style={{marginTop: '2rem'}}>
-         <FirstPage >Who we are</FirstPage>
-            </div>
-            <Swiper
-                style={{maxWidth: '50rem' , height: '50rem', }}
-                effect={'coverflow'}
-                grabCursor={true}
-                centeredSlides={true}
-                loop={true}
-                slidesPerView={'auto'}
-                coverflowEffect={{
-                    rotate: 0,
-                    stretch: 0,
-                    depth: 100,
-                    modifier: 2.5,
-                }}
-                pagination={{ el: '.swiper-pagination', clickable: true }}
-                navigation={{
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                    clickable: true,
-                }}
-                modules={[EffectCoverflow, Pagination, Navigation]}
-                className="swiper_container"
-            >
+            <div className="container1">
+                <div style={{ marginTop: '5rem' }}>
+                    <FirstPage text={'Who are we ?'} />
+                </div>
+                <Swiper
+                    style={{ maxWidth: '50rem', height: '50rem', }}
+                    effect={'coverflow'}
+                    grabCursor={true}
+                    centeredSlides={true}
+                    loop={true}
+                    slidesPerView={'auto'}
+                    coverflowEffect={{
+                        rotate: 0,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 2.5,
+                    }}
+                    pagination={{ el: '.swiper-pagination', clickable: true }}
+                    navigation={{
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                        clickable: true,
+                    }}
+                    modules={[EffectCoverflow, Pagination, Navigation]}
+                    className="swiper_container"
+                >
 
-                {members.map((member) => (
-                    <SwiperSlide key={member.id}  >
-                        <div className="slide-component" onClick={()=>openModal(member)}>
-                            <div className="img-container">
-                                <img src={member.image} />
-                            </div>
-                            <div className='details'>
-                                <h4 className='flex-item'>{member.name} </h4>
-                                <h5 className="flex-item">Role: {member.role}</h5>
-                                <p className='flex-item'>{member.position} of LevelUp</p>
-                                <p className='flex-item'>{member.age} years old.</p>
-
-
-                            </div>
-                            <div className="slide-right">
-                                <p>{member.description}</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                ))}
-<div className='swiper-button-next'>
-    <ion-icon name="arrow-forward-circle-outline"></ion-icon>
-</div>
-                <div className='swiper-button-prev'></div>
-                <div className='swiper-pagination'></div>
-                {/*<div className="slider-controler">*/}
-                {/*    <div className="swiper-button-prev">*/}
-                {/*        <ion-icon name="arrow-back-circle-outline"></ion-icon>*/}
-                {/*    </div>*/}
-                {/*    <div className="swiper-button-next">*/}
-                {/*        <ion-icon name="arrow-back-circle-outline"></ion-icon>*/}
-                {/*    </div>*/}
-                {/*    <div className="swiper-pagination"></div>*/}
-                {/*</div>*/}
-            </Swiper>
-        </div>
-        {modalOpen && (
-            <div className="modal" >
-                <div className="modal-content" >
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
-                    <div className="modal-body">
-                        {selectedMember && (
-                            <div className='flex-container2'>
-                                <img src={selectedMember.image} />
-                                <h5>Role: {selectedMember.role}</h5>
-                                <p>{selectedMember.description}</p>
-                                <div className='flex-contact'>
-                                    <a href='https://www.facebook.com/alecs.pdm/'><ion-icon name="logo-facebook"></ion-icon></a>
-                                    <button className='btn-contact'>Contact Me</button>
-                                    <a href='https://www.instagram.com/mustata_alexandru123/'><ion-icon name="logo-instagram"></ion-icon></a>
+                    {members.map((member) => (
+                        <SwiperSlide key={member.id}  >
+                            <div className="slide-component" onClick={() => openModal(member)}>
+                                <div className="img-container">
+                                    <img src={member.image} />
+                                </div>
+                                <div className='details'>
+                                    <h4 className='flex-item'>{member.name} </h4>
+                                    <h5 className="flex-item">Role: {member.role}</h5>
+                                    <p className='flex-item'>{member.position} of LevelUp</p>
+                                    <p className='flex-item'>{member.age} years old.</p>
+                                </div>
+                                <div className="slide-right">
+                                    <p>{member.description}</p>
                                 </div>
                             </div>
-                        )}
+                        </SwiperSlide>
+                    ))}
+                    <div className='swiper-button-next'>
+                        <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+                    </div>
+                    <div className='swiper-button-prev'></div>
+                    <div className='swiper-pagination'></div>
+                </Swiper>
+            </div>
+            {modalOpen && (
+                <div className="modal" >
+                    <div className="modal-content" >
+                        <span className="close" onClick={closeModal}>
+                            &times;
+                        </span>
+                        <div className="modal-body">
+                            {selectedMember && (
+                                <div className='flex-container2'>
+                                    <img src={selectedMember.image} />
+                                    <h5>Role: {selectedMember.role}</h5>
+                                    <p>{selectedMember.description}</p>
+                                    <div className='flex-contact'>
+                                        <a href='https://www.facebook.com/alecs.pdm/'><ion-icon name="logo-facebook"></ion-icon></a>
+                                        <button className='btn-contact'>Contact Me</button>
+                                        <a href='https://www.instagram.com/mustata_alexandru123/'><ion-icon name="logo-instagram"></ion-icon></a>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
-        )}
+            )}
 
         </>
     );

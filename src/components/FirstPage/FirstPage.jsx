@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import './FirstPage.css'
+import './FirstPage.css';
 
-const FirstPage = (props) => {
+const FirstPage = ({ text }) => {
     const [startAnimation, setStartAnimation] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
+        const timeoutId = setTimeout(() => {
             setStartAnimation(true);
         }, 500);
+
+        return () => {
+            clearTimeout(timeoutId);
+        };
     }, []);
 
-    const moveOn = () => {
-        window.location.reload();
-        window.location.href = "/";
-    }
-
     return (
-        <div style={{textAlign: 'center' , marginBottom: '2rem'}}>
+        <div style={{ textAlign: 'center', paddingBottom: '50px' }}>
             <div className={`animation-text ${startAnimation ? 'animate' : ''}`}>
-                <span>{props.children}</span>
+                <span>{text}</span>
                 <span className="underscore">_</span>
             </div>
-            {/*<button className='button' onClick={moveOn}>Let's begin -------->>>>>>>></button>*/}
         </div>
     );
 };

@@ -13,7 +13,7 @@ router.get('/', auth, async (_, res) => {
         const courses = (await db.query(`select * from t_course`)).rows;
         res.json(courses);
     } catch (err) {
-        res.status(401).send({ msg: 'Permission denied !' });
+        res.status(500).send({ msg: 'Something went wrong !' });
     }
 });
 

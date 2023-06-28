@@ -1,15 +1,10 @@
-
-
-
-
 .animation-text {
-
+    display: inline-block;
     font-size: 24px;
     font-family: 'Courier New', monospace;
     white-space: pre;
     color: black;
     overflow: hidden;
-
 }
 
 .button {
@@ -25,16 +20,12 @@
 }
 
 .animation-text.animate {
-    animation: typing 4s steps(40, end) 0s 1 forwards;
+    animation: typing 4s steps(40, end) infinite;
 }
 
 @keyframes typing {
     0% {
         width: 0;
-    }
-
-    50% {
-        width: 100%;
     }
 
     100% {
@@ -43,7 +34,6 @@
 }
 
 .underscore {
-    position: relative;
     display: inline-block;
     animation: underscore-blink 0.3s infinite;
     opacity: 0;
