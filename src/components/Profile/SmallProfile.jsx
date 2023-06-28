@@ -11,8 +11,8 @@ const SmallProfile = ({ user, isAdmin }) => {
     return (
         <>
             <div className={styles.user_details}>
-                <div className={styles.dropdown}>
-                    <Link
+                <div className={styles.dropdown} style={{ marginBottom: '10px'}}>
+                    <Link style={{fontSize: '1.5rem'}}
                         to="#"
                         className={styles.dropdown_toggle}
                         role="button"
@@ -23,7 +23,7 @@ const SmallProfile = ({ user, isAdmin }) => {
                     >
                         <FiUserCheck />
                     </Link>
-                    <ul className={styles.dropdown_menu} aria-labelledby="userDropdown">
+                    <ul className={styles.dropdown_menu} style={{width: '14rem'}} aria-labelledby="userDropdown">
 
                         <li>
                             <span className={styles.dropdown_item}>
@@ -35,9 +35,11 @@ const SmallProfile = ({ user, isAdmin }) => {
                                 Email: {user.email}
                             </span>
                             {isAdmin && (
+                                <Link to="./profile" style={{textDecoration: 'none'}}>
                                 <span className={styles.dropdown_item} style={{ color: 'green' }}>
                                     Admin
                                 </span>
+                                </Link>
                             )}
                         </li>
                         <li>
@@ -48,6 +50,7 @@ const SmallProfile = ({ user, isAdmin }) => {
                                 to="/"
                                 onClick={logout}
                                 className={styles.dropdown_item}
+                                style={{marginBottom: '1rem' , color: 'green'}}
                             >
                                 Logout
                             </Link>

@@ -5,7 +5,7 @@ import customAxios from './server/utils/customAxios'
 import { Spinner } from 'react-bootstrap';
 import setAuthToken from './server/utils/setAuthToken';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './App.css'
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Navbar from './components/Navbar/Navbar';
@@ -63,7 +63,7 @@ const App = () => {
         ) : (
           <div>
             {user === null ? (
-              <Spinner />
+              <Spinner style={{position: 'absolute' , left: '50%' , right :'50%' , top:'50%',zIndex: '111111' }}/>
             ) : (
               <div>
                 <Navbar profileData={{ user, isAdmin }} />

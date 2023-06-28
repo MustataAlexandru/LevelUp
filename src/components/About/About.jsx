@@ -3,7 +3,10 @@ import Card from 'react-bootstrap/Card';
 import styles from './About.module.css';
 import alex from '../../img/MustataAlexandru.jpg';
 import robert from '../../img/TrascaRobert.jpg';
-
+import SlickSlider from "../Slider/Slider";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import LevelUP from "../FirstPage/FirstPage";
+import FirstPage from "../FirstPage/FirstPage";
 const CircularComponent = () => {
     const members = [
         {
@@ -20,22 +23,25 @@ const CircularComponent = () => {
         },
     ];
 
-    return (
-        <div className={styles.container}>
-            {members.map((member, index) => (
-                <div key={index} className={styles.spacing}>
-                    <Card className={styles.card}>
-                        <Card.Img variant="top" src={member.img} alt={member.name} className={styles.image} />
-                        <Card.Body>
-                            <Card.Title>{member.name}</Card.Title>
-                            <Card.Text>
-                                <p className={styles.pinfo}>Age: {member.age}</p>
-                                <p className={styles.pinfo}>Role: {member.role}</p>
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </div>
-            ))}
+    return (<div >
+            <FirstPage> Who we are </FirstPage>
+        {/*<div className={styles.container}>*/}
+        {/*    {members.map((member, index) => (*/}
+        {/*        <div key={index} className={styles.spacing}>*/}
+        {/*            <Card className={styles.card}>*/}
+        {/*                <Card.Img variant="top" src={member.img} alt={member.name} className={styles.image} />*/}
+        {/*                <Card.Body>*/}
+        {/*                    <Card.Title>{member.name}</Card.Title>*/}
+        {/*                    <Card.Text>*/}
+        {/*                        <p className={styles.pinfo}>Age: {member.age}</p>*/}
+        {/*                        <p className={styles.pinfo}>Role: {member.role}</p>*/}
+        {/*                    </Card.Text>*/}
+        {/*                </Card.Body>*/}
+        {/*            </Card>*/}
+        {/*        </div>*/}
+        {/*    ))}*/}
+
+        {/*</div>*/}  <SlickSlider />
         </div>
     );
 };

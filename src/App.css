@@ -3,12 +3,13 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+
 }
 
 
 
 html {
-    font-size: 80%;
+    font-size: 90%;
     overflow-x:hidden;
 }
 
@@ -16,4 +17,23 @@ html {
     html {
         font-size: 70%;
     }
+}
+
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #e89664;
+    transition: all 0.5s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #fdba74;
+    transition: all 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-track {
+    background: #f9f9f9;
 }

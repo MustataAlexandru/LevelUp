@@ -8,3 +8,6 @@
 .hover {
     transition: all 0.3s;
 }
+.btn:hover {
+    background-color: #e89664;
+}

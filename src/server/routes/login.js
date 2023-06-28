@@ -58,7 +58,7 @@ router.post(
                 email
             };
             const token = jwt.sign(payload, config.jwtSecret, {
-                expiresIn: '2h',
+                expiresIn: '5h',
             });
 
             return res.json({ token });

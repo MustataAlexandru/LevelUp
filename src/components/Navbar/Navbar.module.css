@@ -5,17 +5,20 @@
     z-index: 3;
     justify-content: space-between;
     align-items: center;
-    background-color: #f2f2f2;
+    background-color: #e89664;
     margin: 0 auto;
     padding: 1rem;
     -webkit-box-shadow: -1px 1px 9px -2px #000000;
     box-shadow: -1px 1px 9px -2px #000000;
+
+
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
     color: #333;
+    text-decoration: none;
 }
 
 .nav_links {
@@ -89,4 +92,12 @@
 
 .dropdown_menu li {
     list-style: none;
+}
+
+.nav_links a {
+    color: white;
+}
+
+.align-self-center {
+    align-items: center;
 }

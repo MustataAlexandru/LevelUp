@@ -1,0 +1,56 @@
+
+
+
+
+.animation-text {
+
+    font-size: 24px;
+    font-family: 'Courier New', monospace;
+    white-space: pre;
+    color: black;
+    overflow: hidden;
+
+}
+
+.button {
+    background: none;
+    color: green;
+    text-decoration: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5%;
+    left: 70%;
+    max-width: 50rem;
+    font-size: 20px;
+}
+
+.animation-text.animate {
+    animation: typing 4s steps(40, end) 0s 1 forwards;
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+
+    50% {
+        width: 100%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.underscore {
+    position: relative;
+    display: inline-block;
+    animation: underscore-blink 0.3s infinite;
+    opacity: 0;
+}
+
+@keyframes underscore-blink {
+    50% {
+        opacity: 1;
+    }
+}
