@@ -46,7 +46,7 @@ const members = [
         role: 'Web Developer',
         image: alex,
         description: mustataDescription,
-        position: 'Team Member'
+        position: 'Team Member',
     },
     {   id: 2,
         name: 'Trasca Robert-Valentin',
@@ -215,7 +215,7 @@ const Slider = () => {
         </div>
         {modalOpen && (
             <div className="modal" >
-                <div className="modal-content" onMouseLeave={closeModal}>
+                <div className="modal-content" >
             <span className="close" onClick={closeModal}>
               &times;
             </span>
@@ -225,7 +225,11 @@ const Slider = () => {
                                 <img src={selectedMember.image} />
                                 <h5>Role: {selectedMember.role}</h5>
                                 <p>{selectedMember.description}</p>
-                                <button className='btn-contact'>Contact Me</button>
+                                <div className='flex-contact'>
+                                    <a href='https://www.facebook.com/alecs.pdm/'><ion-icon name="logo-facebook"></ion-icon></a>
+                                    <button className='btn-contact'>Contact Me</button>
+                                    <a href='https://www.instagram.com/mustata_alexandru123/'><ion-icon name="logo-instagram"></ion-icon></a>
+                                </div>
                             </div>
                         )}
                     </div>

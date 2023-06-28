@@ -287,6 +287,10 @@ img:hover {
 
 }
 
+.modal-body img:hover {
+    transform: scale(1);
+}
+
 .modal-body h5 {
     font-size: 18px;
     margin-bottom: 10px;
@@ -305,4 +309,17 @@ img:hover {
 .btn-contact {
     background-color: orange;
     color: white;
+    margin-bottom: 1.4rem;
+
+}
+ion-icon{
+    color: orange;
+    width: 24px;
+    height: 24px;
+}
+.flex-contact {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
