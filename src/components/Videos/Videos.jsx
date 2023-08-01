@@ -11,10 +11,8 @@ const Videos = () => {
     const [teacherInfo, setTeacherInfo] = useState(null);
     const [courseInfo, setCourseInfo] = useState(null);
     const [showAlert, setShowAlert] = useState(false);
-
     useEffect(() => {
         let isMounted = true;
-
         const fetchData = async () => {
             try {
                 const response = await customAxios.get(`/videos/${id}`);
@@ -29,7 +27,6 @@ const Videos = () => {
         };
 
         fetchData();
-
         return () => {
             isMounted = false;
         };
@@ -55,15 +52,17 @@ const Videos = () => {
                         <p>{courseInfo.description}</p>
                     </div>
                     <Col md={12}>
-                        {videos.map((video, index) => (
+                        {videos.map((item, index) => (
                             <Card key={index}>
                                 <Card.Body>
-                                    <div className="d-flex align-items-center">
-                                        <div>
-                                            <Card.Title>{video.title}</Card.Title>
-                                            <Card.Text>{video.description}</Card.Text>
+                                    <h1>{item[0]}</h1>
+                                    {item[1].map((video, index2) => (
+                                        <div key={index2} className="d-flex align-items-center">
+                                            <div>
+                                                <Card.Title style={{ fontSize: '20px' }} >{video.video_number + ") "}{video.title}</Card.Title>
+                                            </div>
                                         </div>
-                                    </div>
+                                    ))}
                                 </Card.Body>
                             </Card>
                         ))}

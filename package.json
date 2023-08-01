@@ -44,7 +44,7 @@
   },
   "scripts": {
     "client": "react-scripts start",
-    "server": "cd src/server && node server.js",
+    "server": "cd src/server && nodemon server.js",
     "dev": "concurrently \"npm run client\" \"npm run server\"",
     "build": "react-scripts build",
     "test": "react-scripts test",

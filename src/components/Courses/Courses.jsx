@@ -20,7 +20,6 @@ const Courses = () => {
         const fetchData = async () => {
             try {
                 const response = await customAxios.get('/courses');
-
                 if (isMounted) {
                     setCourses(response.data);
                 }
