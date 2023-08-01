@@ -30,7 +30,6 @@ router.get('/:id', auth, async (req, res) => {
             else
                 _videos.get(video.chapter).push(video);
         })
-        console.log(_videos);
         res.json({ videos: Array.from(_videos.entries()), courseInfo, teacherInfo });
     } catch (err) {
         res.status(401).send({ msg: 'Permission denied !' });
