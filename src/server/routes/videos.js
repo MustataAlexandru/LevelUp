@@ -23,7 +23,7 @@ router.get('/:id', auth, async (req, res) => {
         inner join t_teacher on t_course_teacher.id_teacher = t_teacher.id
         inner join t_user on t_teacher.id_user = t_user.id
         where t_course_teacher.id_course = $1`, [req.params.id])).rows;
-        //for the videos
+        //altered the query result for the videos
         let _videos = new Map();
         videos.map((video) => {
             if (!_videos.has(video.chapter))
