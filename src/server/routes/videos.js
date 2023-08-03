@@ -13,9 +13,10 @@ router.get('/:id', auth, async (req, res) => {
         select t_video.title as title,t_chapter.title as chapter,t_course.title as course, 
         t_video.link,t_video.video_number
         from t_video
-        inner join t_chapter on t_chapter.id = t_video.id_chapter
-        inner join t_course on t_course.id = t_video.id_course
-        where t_video.id_course = $1;
+        inner join t_course_chapter on t_course_chapter.id = t_video.id_course_chapter
+        inner join t_course on t_course.id = t_course_chapter.id_course
+        inner join t_chapter on t_chapter.id = t_course_chapter.id_chapter
+        where t_course_chapter.id_course = $1;
         `, [parseInt(req.params.id)])).rows;
         const courseInfo = (await db.query(`select * from t_course where id = $1`, [parseInt(req.params.id)])).rows[0];
         const teacherInfo = (await db.query(`select t_user.email,t_user.fullname from t_course_teacher 

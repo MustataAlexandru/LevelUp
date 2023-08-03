@@ -12,7 +12,7 @@ import Profile from './components/Profile/Profile';
 import About from './components/About/About';
 import Courses from './components/Courses/Courses';
 import Videos from './components/Videos/Videos';
-
+import Create from "./components/Create/Create";
 
 const App = () => {
   setAuthToken(localStorage.token);
@@ -61,7 +61,7 @@ const App = () => {
         ) : (
           <div>
             {user === null ? (
-              <Spinner style={{position: 'absolute' , left: '50%' , right :'50%' , top:'50%',zIndex: '111111' }}/>
+              <Spinner style={{ position: 'absolute', left: '50%', right: '50%', top: '50%', zIndex: '111111' }} />
             ) : (
               <div>
                 <Navbar profileData={{ user, isAdmin }} />
@@ -70,6 +70,7 @@ const App = () => {
                     <Route path='/' element={<Courses />} />
                     <Route path='/videos/:id' element={<Videos />} />
                     <Route path='/about' element={<About />} />
+                    <Route path='/create' element={<Create />} />
                     <Route
                       path='/profile'
                       element={<Profile profileData={{ user, isAdmin }} />}
