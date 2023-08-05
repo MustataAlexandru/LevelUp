@@ -21,7 +21,7 @@ const Register = (props) => {
 
     return (
         <div className={styles.form_container}>
-
+        
             <form className={styles.register_form} onSubmit={handleSubmit}>
                 <h1>Register</h1>
                 <label htmlFor='name'>Full name</label>
