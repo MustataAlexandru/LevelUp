@@ -11,13 +11,13 @@ const Navbar = ({ profileData }) => {
         <>
             <nav className={styles.navbar}>
                 <Link to='/'>
-                    <img src={logo} alt ='logo' style={{width: '6rem', borderRadius: '50%', marginLeft: '2rem'}}/>
+                    <img src={logo} alt='logo' style={{ width: '6rem', borderRadius: '50%', marginLeft: '2rem' }} />
                 </Link>
                 <ul>
                     <li>
                         <Form className="d-flex">
                             <Form.Control
-                                style={{ width: '40rem' ,marginLeft: '18rem' ,marginTop:'1.4rem',}}
+                                style={{ width: '40rem', marginLeft: '18rem', marginTop: '1.4rem', }}
                                 type="search"
                                 placeholder="Search for courses"
                                 className="me-2 searchBar"
@@ -27,11 +27,18 @@ const Navbar = ({ profileData }) => {
                     </li>
                 </ul>
                 <Link className={styles.nav_links}
-                      to="/about">
+                    to="/about">
                     Meet The Team
                 </Link>
                 <NavDropdown />
-                <SmallProfile style={{fontSize: '100px'}} user={profileData.user} isAdmin={profileData.isAdmin} />
+                {profileData !== null ? (
+                        <SmallProfile style={{ fontSize: '100px' }} user={profileData.user} isAdmin={profileData.isAdmin} />
+                    ) : (
+                        <Link className={styles.nav_links} to="/auth">
+                            No account ?
+                        </Link>
+                    )
+                }
             </nav>
         </>
     );

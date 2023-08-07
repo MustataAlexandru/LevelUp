@@ -1,14 +1,11 @@
 const { Pool } = require('pg');
 
 const context = new Pool({
-	user: 'doadmin',
-	password: 'AVNS_mYpXaAH73810lEN7NP1',
-	host: 'db-postgresql-fra1-26753-do-user-13809431-0.b.db.ondigitalocean.com',
-	port: 25060,
+	user: 'postgres',
+	password: '7139852465',
+	host: 'localhost',
+	port: 5432,
 	database: 'db',
-	ssl: {
-		rejectUnauthorized:false,
-	},
 });
 
 module.exports = {

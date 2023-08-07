@@ -6,9 +6,9 @@ const config = require('../config/default.json');
 
 // @route => /courses
 // @desc => Get the courses
-// @access => Private
+// @access => Public
 
-router.get('/', auth, async (_, res) => {
+router.get('/', async (_, res) => {
     try {
         const courses = (await db.query(`select * from t_course`)).rows;
         res.json(courses);

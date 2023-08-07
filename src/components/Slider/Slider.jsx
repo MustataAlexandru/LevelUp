@@ -9,7 +9,6 @@ import 'swiper/css/navigation';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper';
 
 import FirstPage from "../FirstPage/FirstPage";
-
 import ionut from './img/ionut.jfif';
 import ioan from './img/iulian.jfif';
 import tudor from './img/tudor.jfif';
@@ -134,7 +133,7 @@ const members = [
     }
 ];
 
-const Slider = () => {
+const About = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedMember, setSelectedMember] = useState(members[0]);
 
@@ -230,4 +229,4 @@ const Slider = () => {
         </>
     );
 }
-export default Slider;
+export default About;

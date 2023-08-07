@@ -13,10 +13,10 @@ import About from './components/About/About';
 import Courses from './components/Courses/Courses';
 import Videos from './components/Videos/Videos';
 import Create from "./components/Create/Create";
-
+import Error404 from './components/Errors/Error404';
 const App = () => {
   setAuthToken(localStorage.token);
-  const [currentForm, setCurrentForm] = useState('login');
+  const [currentForm, setCurrentForm] = useState('register');
   const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(null);
   const toggleForm = (formName) => setCurrentForm(formName);
@@ -46,18 +46,24 @@ const App = () => {
     <Router>
       <div className='big-container'>
         {localStorage.getItem('token') === null ? (
-          <Routes>
-            <Route
-              path='/'
-              element={
-                currentForm === 'login' ? (
-                  <Login toggleForm={toggleForm}  />
-                ) : (
-                  <Register toggleForm={toggleForm} />
-                )
-              }
-            />
-          </Routes>
+          <div>
+            <Navbar profileData={null} />
+            <Routes>
+              <Route
+                path='/auth'
+                element={
+                  currentForm === 'login' ? (
+                    <Login toggleForm={toggleForm} />
+                  ) : (
+                    <Register toggleForm={toggleForm} />
+                  )
+                }
+              />
+              <Route path='/' element={<Courses />} />
+              <Route path='/videos/:id' element={<Register />} />
+              <Route path='/about' element={<About />} />
+            </Routes>
+          </div>
         ) : (
           <div>
             {user === null ? (

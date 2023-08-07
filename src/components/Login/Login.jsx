@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import styles from './Login.module.css';
 import customAxios from '../../server/utils/customAxios';
 import Navbar from "../Navbar/Navbar";
+import { useNavigate } from "react-router";
 
 const Login = (props) => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
 
@@ -12,8 +14,8 @@ const Login = (props) => {
         try {
             let token = (await customAxios.post(`/login`, { email, pass })).data.token;
             localStorage.setItem('token', token);
+            navigate('/');
             window.location.reload();
-
         } catch (error) {
             alert('Invalid credentials !');
         }
