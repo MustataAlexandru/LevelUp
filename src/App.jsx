@@ -51,7 +51,7 @@ const App = () => {
               path='/'
               element={
                 currentForm === 'login' ? (
-                  <Login toggleForm={toggleForm} />
+                  <Login toggleForm={toggleForm}  />
                 ) : (
                   <Register toggleForm={toggleForm} />
                 )

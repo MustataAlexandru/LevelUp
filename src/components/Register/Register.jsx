@@ -20,8 +20,12 @@ const Register = (props) => {
     }
 
     return (
+        <div className={styles.grid3}>
+            <div className={styles.gridItem}>
+            <aside><h1 className='text-center'>Hello Word</h1></aside>
+            </div>
         <div className={styles.form_container}>
-        
+
             <form className={styles.register_form} onSubmit={handleSubmit}>
                 <h1>Register</h1>
                 <label htmlFor='name'>Full name</label>
@@ -35,7 +39,12 @@ const Register = (props) => {
                 <button type='submit' className={styles.btnSubmit}>Register</button>
                 <button className={styles.link_btn} onClick={() => { props.toggleForm('login') }}>Already have an account?Login here.</button>
             </form>
-
+        </div>
+            <div className={styles.gridItem}>
+                <aside>
+                    <h1 className='text-center'>Hello Word</h1>
+                </aside>
+            </div>
         </div>
     )
 }

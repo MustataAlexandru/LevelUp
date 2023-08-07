@@ -2,6 +2,7 @@ import { FiUserCheck } from "react-icons/fi";
 import { Link, useNavigate } from 'react-router-dom';
 import styles from '../Navbar/Navbar.module.css';
 import { Button } from 'react-bootstrap';
+import classes from './SmallProfile.module.css'
 
 const SmallProfile = ({ user, isAdmin }) => {
     const navigate = useNavigate();
@@ -45,16 +46,16 @@ const SmallProfile = ({ user, isAdmin }) => {
                             )}
                         </li>
                         <li>
-                            <Button onClick={() => { navigate('/create') }} style={{ width: '14rem' }}>Create</Button>
+                            <Button className={classes.btn} onClick={() => { navigate('/create') }} style={{ width: '100%' }}>Create course</Button>
                         </li>
                         <li>
                             <Link
                                 to="/"
                                 onClick={logout}
-                                className={styles.dropdown_item}
-                                style={{ marginBottom: '1rem', color: 'red' }}
+                                className={`${styles.dropdown_item}  ${classes.logout}`}
+                                style={{color: 'red' }}
                             >
-                                Logout
+                               <p className='text-center'>Logout</p>
                             </Link>
                         </li>
 

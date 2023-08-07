@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from './Login.module.css';
 import customAxios from '../../server/utils/customAxios';
+import Navbar from "../Navbar/Navbar";
+
 const Login = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
@@ -18,6 +20,7 @@ const Login = (props) => {
     }
 
     return (
+
         <div className={styles.form_container}>
 
             <form className={styles.login_form} onSubmit={handleSubmit}>
@@ -31,8 +34,8 @@ const Login = (props) => {
                 </button>
                 <button className={styles.link_btn} onClick={() => { props.toggleForm('register') }}>Don't have an account? Register here.</button>
             </form>
-
         </div>
+
     )
 }
 

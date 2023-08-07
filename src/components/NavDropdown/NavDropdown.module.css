@@ -1,0 +1,14 @@
+.nav_links {
+    text-decoration: none;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    width: 10rem;
+    background-color: white;
+    color: black;
+    padding: 4px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+
+}
