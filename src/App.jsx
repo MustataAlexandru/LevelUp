@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import customAxios from './server/utils/customAxios'
+import customAxios from './server/utils/customAxios';
 import { Spinner } from 'react-bootstrap';
 import setAuthToken from './server/utils/setAuthToken';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'
+import './App.css';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Navbar from './components/Navbar/Navbar';
@@ -14,6 +14,7 @@ import Courses from './components/Courses/Courses';
 import Videos from './components/Videos/Videos';
 import Create from "./components/Create/Create";
 import Error404 from './components/Errors/Error404';
+
 const App = () => {
   setAuthToken(localStorage.token);
   const [currentForm, setCurrentForm] = useState('register');
@@ -34,8 +35,9 @@ const App = () => {
         console.log(error);
       }
     };
-    if (localStorage.getItem('token') !== null)
+    if (localStorage.getItem('token') !== null) {
       fetchData();
+    }
     return () => {
       isMounted = false;
     };
@@ -44,50 +46,20 @@ const App = () => {
 
   return (
     <Router>
-      <div className='big-container'>
-        {localStorage.getItem('token') === null ? (
-          <div>
-            <Navbar profileData={null} />
-            <Routes>
-              <Route
-                path='/auth'
-                element={
-                  currentForm === 'login' ? (
-                    <Login toggleForm={toggleForm} />
-                  ) : (
-                    <Register toggleForm={toggleForm} />
-                  )
-                }
-              />
-              <Route path='/' element={<Courses />} />
-              <Route path='/videos/:id' element={<Register />} />
-              <Route path='/about' element={<About />} />
-            </Routes>
-          </div>
+      <Navbar profileData={localStorage.getItem('token') !== null ? { user, isAdmin } : false} />
+      <Routes>
+        <Route path='/' element={<Courses />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/videos/:id' element={localStorage.getItem('token') !== null ? <Videos /> : <Register />} />
+        {localStorage.getItem('token') !== null ? (
+          <>
+            <Route path='/create' element={<Create />} />
+            <Route path='/profile' element={<Profile profileData={{ user, isAdmin }} />} />
+          </>
         ) : (
-          <div>
-            {user === null ? (
-              <Spinner style={{ position: 'absolute', left: '50%', right: '50%', top: '50%', zIndex: '111111' }} />
-            ) : (
-              <div>
-                <Navbar profileData={{ user, isAdmin }} />
-                <div className='row'>
-                  <Routes>
-                    <Route path='/' element={<Courses />} />
-                    <Route path='/videos/:id' element={<Videos />} />
-                    <Route path='/about' element={<About />} />
-                    <Route path='/create' element={<Create />} />
-                    <Route
-                      path='/profile'
-                      element={<Profile profileData={{ user, isAdmin }} />}
-                    />
-                  </Routes>
-                </div>
-              </div>
-            )}
-          </div>
+          <Route path='/auth' element={currentForm === 'login' ? <Login toggleForm={toggleForm} /> : <Register toggleForm={toggleForm} />} />
         )}
-      </div>
+      </Routes>
     </Router>
   );
 }

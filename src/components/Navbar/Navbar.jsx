@@ -31,14 +31,13 @@ const Navbar = ({ profileData }) => {
                     Meet The Team
                 </Link>
                 <NavDropdown />
-                {profileData !== null ? (
-                        <SmallProfile style={{ fontSize: '100px' }} user={profileData.user} isAdmin={profileData.isAdmin} />
-                    ) : (
-                        <Link className={styles.nav_links} to="/auth">
-                            No account ?
-                        </Link>
-                    )
-                }
+                {profileData !== false && profileData.user !== null ? (
+                    <SmallProfile style={{ fontSize: '100px' }} user={profileData.user} isAdmin={profileData.isAdmin} />
+                ) : (
+                    <Link className={styles.nav_links} to="/auth">
+                        No account ?
+                    </Link>
+                )}
             </nav>
         </>
     );
