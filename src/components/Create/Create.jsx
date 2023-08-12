@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import { ListGroup, InputGroup, Button, Form } from 'react-bootstrap';
 import VideosModal from './VideosModal';
+import customAxios from '../../server/utils/customAxios';
 const CollapsibleListGroup = () => {
     //Modal
     const [show, setShow] = useState(false);
     //
+    const [category, setCategory] = useState('');
     const [chapter, setChapter] = useState('');
     const [courseName, setCourseName] = useState('');
     const [description, setDescription] = useState('');
     const [currentIndex, setCurrentIndex] = useState(null);
-    const [chapters, setChapters] = useState([
-        { name: "Chapter1", collapsed: true, videos: [{ title: 'Video1', link: 'link1' }] },
-        { name: "Chapter2", collapsed: true, videos: [{ title: 'Video2', link: 'link2' }] }
-    ]);
-    const [tag, setTag] = useState('');
-    const [tags, setTags] = useState([]);
+    const [chapters, setChapters] = useState([]);
 
     const changeState = (index) => {
         setChapters(prevList => {
@@ -37,23 +34,15 @@ const CollapsibleListGroup = () => {
         } else alert('Add a chapter !');
     }
 
-    const addTag = () => {
-        if (tag.length !== 0) {
-            setTags((prevList) => {
-                const updatedList = [...prevList];
-                updatedList.push(tag);
-                return updatedList;
-            })
-        } else alert('Add a tag');
-    }
 
-    const customText = () => {
-        let str = "";
-        tags.map((current) => {
-            str += current + ", ";
-        });
-        console.log(str);
-        return str;
+    const handleSubmit = async () => {
+        if (courseName.length > 0 && description.length > 0 && category.length > 0 && chapters.length > 0) {
+            try {
+                const result = await customAxios.post('/courses', { courseName, description, category, chapters });
+            } catch (error) {
+                console.log(error);
+            }
+        } else alert('You need to complete everything !');
     }
     return (
         <div
@@ -68,6 +57,9 @@ const CollapsibleListGroup = () => {
             <VideosModal setChapters={setChapters} show={show} setShow={setShow} currentIndex={currentIndex} chapters={chapters} />
             <InputGroup style={{ width: '30rem', marginBottom: '1rem' }}>
                 <Form.Control value={courseName} onChange={(e) => setCourseName(e.target.value)} placeholder='Course name' size='lg' />
+            </InputGroup>
+            <InputGroup style={{ width: '30rem', marginBottom: '1rem' }}>
+                <Form.Control value={category} onChange={(e) => setCategory(e.target.value)} placeholder='Category' size='lg' />
             </InputGroup>
             <InputGroup style={{ width: '30rem' }}>
                 <Form.Control
@@ -116,26 +108,7 @@ const CollapsibleListGroup = () => {
                 </InputGroup>
             </InputGroup>
             <br />
-            <Form.Label style={{ fontSize: '20px' }}>Tags </Form.Label>
-            <InputGroup style={{ width: '30rem' }}>
-                <div style={{ flex: 1 }}>
-                    {tags.length !== 0 && (
-                        <div style={{ maxHeight: '100px', overflowY: 'auto' }}>
-                            <Form.Label style={{ fontSize: '1.2rem', color: 'blue' }}>
-                                {customText()}
-                            </Form.Label>
-                        </div>
-                    )}
-                    <Form.Control
-                        type="text"
-                        placeholder='New tag'
-                        size='lg'
-                        onChange={(e) => setTag(e.target.value)}
-                    />
-                    <Button style={{ width: '100%', fontSize: '15px' }} variant='primary' onClick={addTag}>Add a new tag</Button>
-                </div>
-            </InputGroup>
-            <Button onClick={()=>{alert('Done !')}} style={{ width: '30rem',marginBottom:'5rem',marginTop:'5rem' }}>Finish</Button>
+            <Button onClick={handleSubmit} style={{ width: '30rem', marginBottom: '5rem', marginTop: '5rem' }}>Finish</Button>
         </div>
     );
 }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import customAxios from './server/utils/customAxios';
-import { Spinner } from 'react-bootstrap';
 import setAuthToken from './server/utils/setAuthToken';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from './Login.module.css';
 import customAxios from '../../server/utils/customAxios';
-import Navbar from "../Navbar/Navbar";
 import { useNavigate } from "react-router";
 
 const Login = (props) => {
