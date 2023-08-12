@@ -22,6 +22,7 @@ router.get('/', async (_, res) => {
 
 router.post('/', auth, async (req, res) => {
     try {
+        await db.query('BEGIN');
         const { courseName, description, category, chapters } = req.body;
         let id_category, id_course;
         let arr = [];
@@ -47,9 +48,11 @@ router.post('/', auth, async (req, res) => {
                     await db.query(`insert into t_video(title,link,video_number,id_course_chapter)values($1,$2,$3,$4);`, [video.title, video.link, j + 1, id_course_chapter]);
                 }
             }
+            await db.query('COMMIT');
         } else console.log('already there !');
         return res.status(200).send();
     } catch (error) {
+        await db.query('ROLLBACK');
         res.status(500).send({ msg: 'Something went wrong !' });
     }
 });

@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { ListGroup, InputGroup, Button, Form } from 'react-bootstrap';
 import VideosModal from './VideosModal';
 import customAxios from '../../server/utils/customAxios';
+import { useNavigate } from 'react-router';
+
 const CollapsibleListGroup = () => {
+    const navigate = useNavigate();
     //Modal
     const [show, setShow] = useState(false);
     //
@@ -38,7 +41,8 @@ const CollapsibleListGroup = () => {
     const handleSubmit = async () => {
         if (courseName.length > 0 && description.length > 0 && category.length > 0 && chapters.length > 0) {
             try {
-                const result = await customAxios.post('/courses', { courseName, description, category, chapters });
+                await customAxios.post('/courses', { courseName, description, category, chapters });
+                navigate('/');
             } catch (error) {
                 console.log(error);
             }
