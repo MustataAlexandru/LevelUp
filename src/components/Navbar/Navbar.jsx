@@ -30,7 +30,6 @@ const Navbar = ({ profileData }) => {
                     to="/about">
                     Meet The Team
                 </Link>
-                <NavDropdown />
                 {profileData !== false && profileData.user !== null ? (
                     <SmallProfile style={{ fontSize: '100px' }} user={profileData.user} isAdmin={profileData.isAdmin} />
                 ) : (

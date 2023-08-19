@@ -52,7 +52,9 @@ const App = () => {
         <Route path='/videos/:id' element={localStorage.getItem('token') !== null ? <Videos /> : <Register />} />
         {localStorage.getItem('token') !== null ? (
           <>
-            <Route path='/create' element={<Create />} />
+            {isAdmin && (
+              <Route path='/create' element={<Create />} />
+            )}
             <Route path='/profile' element={<Profile profileData={{ user, isAdmin }} />} />
           </>
         ) : (

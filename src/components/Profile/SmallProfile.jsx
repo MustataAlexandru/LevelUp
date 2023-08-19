@@ -45,17 +45,19 @@ const SmallProfile = ({ user, isAdmin }) => {
                                 </Link>
                             )}
                         </li>
-                        <li>
-                            <Button className={classes.btn} onClick={() => { navigate('/create') }} style={{ width: '100%' }}>Create course</Button>
-                        </li>
+                        {isAdmin && (
+                            <li>
+                                <Button className={classes.btn} onClick={() => { navigate('/create') }} style={{ width: '100%' }}>Create course</Button>
+                            </li>
+                        )}
                         <li>
                             <Link
                                 to="/"
                                 onClick={logout}
                                 className={`${styles.dropdown_item}  ${classes.logout}`}
-                                style={{color: 'red' }}
+                                style={{ color: 'red' }}
                             >
-                               <p className='text-center'>Logout</p>
+                                <p className='text-center'>Logout</p>
                             </Link>
                         </li>
 

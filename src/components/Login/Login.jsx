@@ -11,7 +11,7 @@ const Login = (props) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            let token = (await customAxios.post(`/login`, { email, pass })).data.token;
+            const token = (await customAxios.post(`/login`, { email, pass })).data.token;
             localStorage.setItem('token', token);
             navigate('/');
             window.location.reload();

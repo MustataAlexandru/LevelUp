@@ -25,9 +25,11 @@ const Profile = ({ profileData }) => {
               <Card.Text className="mb-4" style={{ fontSize: '18px', color: 'green' }}>
                 {profileData.isAdmin ? 'Admin' : 'User'}
               </Card.Text>
-              <Card.Text className="mb-4">
-                <Button style={{ height: '30px', width: '100px', fontSize: '15' }} onClick={() => { navigate('/create') }}>Create</Button>
-              </Card.Text>
+              {profileData.isAdmin && (
+                <Card.Text className="mb-4">
+                  <Button style={{ height: '30px', width: '100px', fontSize: '15' }} onClick={() => { navigate('/create') }}>Create</Button>
+                </Card.Text>
+              )}
             </Card.Body>
           </Card>
         </div>
