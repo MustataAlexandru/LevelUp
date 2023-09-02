@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ListGroup, InputGroup, Button, Form } from 'react-bootstrap';
-import VideosModal from './VideosModal';
+import VideoInputModal from './VideoInputModal';
 import customAxios from '../../server/utils/customAxios';
 import { useNavigate } from 'react-router';
 
@@ -10,6 +10,7 @@ const CollapsibleListGroup = () => {
     const [show, setShow] = useState(false);
     //
     const [category, setCategory] = useState('');
+    const [trailer, setTrailer] = useState('');
     const [chapter, setChapter] = useState('');
     const [courseName, setCourseName] = useState('');
     const [description, setDescription] = useState('');
@@ -37,17 +38,18 @@ const CollapsibleListGroup = () => {
         } else alert('Add a chapter !');
     }
 
-
     const handleSubmit = async () => {
         if (courseName.length > 0 && description.length > 0 && category.length > 0 && chapters.length > 0) {
             try {
-                await customAxios.post('/courses', { courseName, description, category, chapters });
+                await customAxios.post('/courses', { courseName, description, category, chapters, trailer });
                 navigate('/');
             } catch (error) {
                 console.log(error);
             }
         } else alert('You need to complete everything !');
     }
+
+
     return (
         <div
             style={{
@@ -58,7 +60,7 @@ const CollapsibleListGroup = () => {
                 paddingTop: '120px'
             }}
         >
-            <VideosModal setChapters={setChapters} show={show} setShow={setShow} currentIndex={currentIndex} chapters={chapters} />
+            <VideoInputModal setChapters={setChapters} show={show} setShow={setShow} currentIndex={currentIndex} chapters={chapters} />
             <InputGroup style={{ width: '30rem', marginBottom: '1rem' }}>
                 <Form.Control value={courseName} onChange={(e) => setCourseName(e.target.value)} placeholder='Course name' size='lg' />
             </InputGroup>
@@ -74,6 +76,9 @@ const CollapsibleListGroup = () => {
                     onChange={(e) => setDescription(e.target.value)}
                     placeholder="Enter description"
                 />
+            </InputGroup>
+            <InputGroup style={{ width: '30rem', marginBottom: '1rem' }}>
+                <Form.Control value={trailer} onChange={(e) => setTrailer(e.target.value)} placeholder='Introductory video link' size='lg' />
             </InputGroup>
             <InputGroup style={{ width: '30rem' }}>
                 <Form.Label style={{ fontSize: '20px' }}>Chapters : </Form.Label>

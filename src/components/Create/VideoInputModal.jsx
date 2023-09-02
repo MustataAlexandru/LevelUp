@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-const VideosModal = ({ show, setShow, setChapters, currentIndex }) => {
+const VideoInputModal = ({ show, setShow, setChapters, currentIndex }) => {
     const [title, setTitle] = useState('');
     const [link, setLink] = useState('');
 
@@ -59,4 +59,4 @@ const VideosModal = ({ show, setShow, setChapters, currentIndex }) => {
     );
 }
 
-export default VideosModal;
+export default VideoInputModal;

@@ -4,13 +4,15 @@ import { useParams } from 'react-router-dom';
 import customAxios from '../../server/utils/customAxios';
 import { Spinner, Button } from 'react-bootstrap';
 import Alert from 'react-bootstrap/Alert';
-
+import VideoModal from '../VideoModal/VideoModal';
 const Videos = () => {
     const { id } = useParams();
     const [videos, setVideos] = useState(null);
     const [teacherInfo, setTeacherInfo] = useState(null);
     const [courseInfo, setCourseInfo] = useState(null);
+    const [link, setLink] = useState('');
     const [showAlert, setShowAlert] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     useEffect(() => {
         let isMounted = true;
         const fetchData = async () => {
@@ -42,6 +44,7 @@ const Videos = () => {
                 <Spinner />
             ) : (
                 <Container style={{ paddingTop: '10rem' }}>
+                    <VideoModal link={link} showModal={showModal} setShowModal={setShowModal} />
                     {showAlert && (
                         <Alert variant="success" onClose={() => setShowAlert(false)} dismissible>
                             Enrollment successful!
@@ -53,20 +56,25 @@ const Videos = () => {
                     </div>
                     <Col md={12}>
                         {videos.map((item, index) => (
-                            <Card key={index}>
+                            <Card key={index} className="mb-4 shadow-sm">
+                                <Card.Header as="h5">{item[0]}</Card.Header>
                                 <Card.Body>
-                                    <h1>{item[0]}</h1>
                                     {item[1].map((video, index2) => (
-                                        <div key={index2} className="d-flex align-items-center">
-                                            <div>
-                                                <Card.Title style={{ fontSize: '20px' }} >{video.video_number + ") "}{video.title}</Card.Title>
-                                            </div>
+                                        <div key={index2} className="d-flex align-items-center mb-2">
+                                            <Card.Link
+                                                href="#"
+                                                onClick={() => { setLink(video.link); setShowModal(true) }}
+                                                style={{ fontSize: '20px', cursor: 'pointer' }}
+                                                className="text-primary hover-effect">
+                                                {video.video_number + ") "}{video.title}
+                                            </Card.Link>
                                         </div>
                                     ))}
                                 </Card.Body>
                             </Card>
                         ))}
                     </Col>
+
                     <div style={{ textAlign: 'center', marginTop: '2rem' }}>
                         <Button onClick={handleEnrollClick} variant="primary" style={{ width: '15rem', border: '1px solid white', backgroundColor: ' #e89664' }}>
                             Confirm Enroll

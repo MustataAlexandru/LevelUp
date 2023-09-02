@@ -23,7 +23,7 @@ router.get('/', async (_, res) => {
 router.post('/', auth, async (req, res) => {
     try {
         await db.query('BEGIN');
-        const { courseName, description, category, chapters } = req.body;
+        const { courseName, description, category, chapters, trailer } = req.body;
         let id_category, id_course;
         let arr = [];
         let result = (await db.query(`select * from t_course where title = $1`, [courseName])).rows[0];
@@ -33,7 +33,7 @@ router.post('/', auth, async (req, res) => {
                 id_category = (await db.query(`insert into t_category(name)values($1) returning id;`, [category])).rows[0].id;
             else
                 id_category = result.id;
-            id_course = (await db.query(`insert into t_course(title,description,id_category)values($1,$2,$3) returning id;`, [courseName, description, id_category])).rows[0].id;
+            id_course = (await db.query(`insert into t_course(title,description,id_category,trailer)values($1,$2,$3,$4) returning id;`, [courseName, description, id_category, trailer])).rows[0].id;
             for (let i = 0; i < chapters.length; i++) {
                 result = (await db.query(`select id from t_chapter where title = $1`, [chapters[i].name])).rows[0];
                 let id_chapter;

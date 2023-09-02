@@ -59,7 +59,6 @@ const Courses = () => {
                 <Spinner />
             ) : (
                 <>
-                    <VideoModal showModal={showModal} setShowModal={setShowModal} />
                     <div className="container" style={{ padding: '2rem 14rem ', margin: 'auto', width: '100%', borderBottom: '1px solid ' }}>
                         <div style={{ marginBottom: '5rem', textAlign: 'center', marginTop: '10rem' }}>
                         </div>
@@ -67,12 +66,13 @@ const Courses = () => {
                         <div className="row">
                             {courses.map((course, index) => (
                                 <div key={index} className="col-xs-12 col-sm-6 col-md-4 col-lg-3" style={{ marginBottom: '2rem' }}>
+                                    <VideoModal link={course.trailer} showModal={showModal} setShowModal={setShowModal} />
                                     <Card style={{ width: '18rem', height: '28rem', border: '1px solid #e89664' }} className={styles.hover}>
                                         <Card.Body className="text-center d-flex flex-column">
                                             <div style={{ flex: '1 0 auto' }}>
                                                 <Card.Title className="card-title" style={{ borderBottom: '1px solid black', paddingBottom: '5px' }}>{truncateTitle(course.title)}</Card.Title>
                                                 <div style={{ width: '100%', height: '71%', borderBottom: '1px solid black' }}>
-                                                    <div style={{ width: '100%', height: 'auto' }}>                                                    
+                                                    <div style={{ width: '100%', height: 'auto' }}>
                                                         <Ratio aspectRatio="16x9">
                                                             <div style={{ width: '100%', height: '100%' }}>
                                                                 <img onClick={() => { setShowModal(true) }} src={play_icon} style={{ width: '100%', height: '150%' }} />
